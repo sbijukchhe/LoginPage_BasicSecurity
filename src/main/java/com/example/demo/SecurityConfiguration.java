@@ -22,8 +22,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().anyRequest().authenticated().and().formLogin();
     }
 
-
-    protected void cofigure(AuthenticationManagerBuilder auth) throws Exception{
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception{
         auth.inMemoryAuthentication().withUser("user").password(passwordEncoder().encode("password")).authorities("USER");
     }
 
